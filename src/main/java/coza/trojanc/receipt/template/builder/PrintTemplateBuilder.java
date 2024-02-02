@@ -1,6 +1,7 @@
 package coza.trojanc.receipt.template.builder;
 
 import coza.trojanc.receipt.shared.Align;
+import coza.trojanc.receipt.shared.Mode;
 import coza.trojanc.receipt.template.PrintTemplate;
 import coza.trojanc.receipt.template.fields.*;
 
@@ -15,7 +16,6 @@ public class PrintTemplateBuilder extends AbstractTemplateBuilder{
 	 * Template we are busy building
 	 */
 	private PrintTemplate template;
-
 
 	/**
 	 * Instantiates a new Print template builder.
@@ -39,7 +39,6 @@ public class PrintTemplateBuilder extends AbstractTemplateBuilder{
 		template.setName(name);
 		return this;
 	}
-
 
 	/**
 	 * Line print template builder.
@@ -89,7 +88,6 @@ public class PrintTemplateBuilder extends AbstractTemplateBuilder{
 		return this;
 	}
 
-
 	/**
 	 * Text print template builder.
 	 *
@@ -116,7 +114,6 @@ public class PrintTemplateBuilder extends AbstractTemplateBuilder{
 		}
 	}
 
-
 	/**
 	 * Static text print template builder.
 	 *
@@ -134,11 +131,21 @@ public class PrintTemplateBuilder extends AbstractTemplateBuilder{
 	 * @param key the key
 	 * @return the print template builder
 	 */
-	public PrintTemplateBuilder dynamicText(String key){
+	public PrintTemplateBuilder dynamicText(String key) {
 		super.addDynamicText(key);
 		return this;
 	}
 
+	/**
+	 * Mode print template builder.
+	 *
+	 * @param mode the mode
+	 * @return the print template builder
+	 */
+	public PrintTemplateBuilder mode(Mode mode){
+		super.addMode(mode);
+		return this;
+	}
 
 	/**
 	 * Align print template builder.
@@ -161,7 +168,6 @@ public class PrintTemplateBuilder extends AbstractTemplateBuilder{
 		super.addOffset(offset);
 		return this;
 	}
-
 
 	public PrintBlockTemplateBuilder repeat(String repeatOn){
 		finishBusyLine();

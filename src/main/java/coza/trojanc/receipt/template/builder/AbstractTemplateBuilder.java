@@ -1,6 +1,7 @@
 package coza.trojanc.receipt.template.builder;
 
 import coza.trojanc.receipt.shared.Align;
+import coza.trojanc.receipt.shared.Mode;
 import coza.trojanc.receipt.template.fields.*;
 
 import java.awt.*;
@@ -121,6 +122,17 @@ public abstract class AbstractTemplateBuilder {
 		((DynamicText)textItem).setContextKey(key);
 	}
 
+	/**
+	 * Mode print template builder.
+	 *
+	 * @param mode the mode
+	 * @return the print template builder
+	 */
+	public void addMode(Mode mode){
+		checkValidLine();
+		ensureTextItem();
+		textItem.setMode(mode);
+	}
 
 	/**
 	 * Align print template builder.
