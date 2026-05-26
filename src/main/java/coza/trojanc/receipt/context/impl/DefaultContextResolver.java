@@ -138,10 +138,12 @@ public class DefaultContextResolver implements ContextResolver {
 		if(isArrayExpression(expression)){
 			final String prefix = getArrayExpressionPrefix(expression);
 			Object evaluatedArray = evaluateExpression(prefix);
-			int size = ((List)evaluatedArray).size();
+			//int size = ((List) evaluatedArray).size();
+			int size = ((List<?>) evaluatedArray).size();
 			// It is a list
 			if(List.class.isAssignableFrom(evaluatedArray.getClass())){
-				size = ((List)evaluatedArray).size();
+				//size = ((List) evaluatedArray).size();
+				size = ((List<?>) evaluatedArray).size();
 			}
 			// It is an array
 			else if(evaluatedArray.getClass().isArray()){

@@ -3,12 +3,13 @@ package coza.trojanc.receipt.shared;
 /**
  * @author Charl Thiem
  */
+@SuppressWarnings("unused")
 public enum Mode {
 	NORMAL("normal"),
 	BOLD("bold");
 
-
 	private String value;
+	
 	Mode(String value){
 		this.value = value;
 	}

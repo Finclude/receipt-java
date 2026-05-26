@@ -12,6 +12,7 @@ import java.io.ByteArrayOutputStream;
  */
 public class JsonContextDefinitionLoaderTest {
 	@Test
+	@SuppressWarnings("unused")
 	public void load() throws Exception {
 		ContextDefinitionLoader loader = new JsonContextDefinitionLoader();
 		ContextDefinition contextDefinition = loader.load(getClass().getResourceAsStream("/context.json"));

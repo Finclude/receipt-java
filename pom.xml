@@ -15,16 +15,16 @@
 		<!-- Build settings -->
 		<enforcer.phase>validate</enforcer.phase>
 		<maven.min.version>3.1</maven.min.version>
-		<project.jdk.min.version>1.8.0</project.jdk.min.version>
-		<project.jdk.source.version>1.8</project.jdk.source.version>
-		<project.jdk.target.version>1.8</project.jdk.target.version>
+		<project.jdk.min.version>11.0.12</project.jdk.min.version>
+		<project.jdk.source.version>11</project.jdk.source.version>
+		<project.jdk.target.version>11</project.jdk.target.version>
 
 		<!-- Dependency versions -->
 		<commons-io.version>2.5</commons-io.version>
 
 
-		<junit.version>4.12</junit.version>
-		<junit.jupiter.version>5.0.0-M4</junit.jupiter.version>
+		<junit.version>4.13.2</junit.version>
+		<junit.jupiter.version>5.10.2</junit.jupiter.version>
 		<junit.platform.version>1.0.0-M4</junit.platform.version>
 
 		<!-- plugin versions -->
@@ -37,9 +37,9 @@
 		<plugin.install.version>2.5.2</plugin.install.version>
 		<plugin.javadoc.version>2.10.4</plugin.javadoc.version>
 		<plugin.deploy.version>2.8.2</plugin.deploy.version>
-		<plugin.compiler.version>3.6.1</plugin.compiler.version>
+		<plugin.compiler.version>3.11.0</plugin.compiler.version>
 		<plugin.assembly.version>3.0.0</plugin.assembly.version>
-		<plugin.surefire.version>2.19</plugin.surefire.version>
+		<plugin.surefire.version>3.2.5</plugin.surefire.version>
 		<plugin.site.version>3.6</plugin.site.version>
 		<plugin.release.version>2.5.3</plugin.release.version>
 	</properties>
@@ -113,25 +113,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter-api</artifactId>
-			<version>${junit.jupiter.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.junit.platform</groupId>
-			<artifactId>junit-platform-launcher</artifactId>
-			<version>${junit.platform.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.junit.platform</groupId>
-			<artifactId>junit-platform-console</artifactId>
-			<version>${junit.platform.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter-engine</artifactId>
+			<artifactId>junit-jupiter</artifactId>
 			<version>${junit.jupiter.version}</version>
 			<scope>test</scope>
 		</dependency>
@@ -144,7 +126,7 @@
 		<dependency>
 			<groupId>org.junit.vintage</groupId>
 			<artifactId>junit-vintage-engine</artifactId>
-			<version>${junit.version}.0-M4</version>
+			<version>${junit.jupiter.version}</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
@@ -234,8 +216,7 @@
 					<artifactId>maven-compiler-plugin</artifactId>
 					<version>${plugin.compiler.version}</version>
 					<configuration>
-						<source>${project.jdk.source.version}</source>
-						<target>${project.jdk.target.version}</target>
+						<release>11</release>
 					</configuration>
 				</plugin>
 				<plugin>
@@ -255,13 +236,6 @@
 							<include>**/*TestCase.java</include>
 						</includes>
 					</configuration>
-					<dependencies>
-						<dependency>
-							<groupId>org.junit.platform</groupId>
-							<artifactId>junit-platform-surefire-provider</artifactId>
-							<version>${junit.platform.version}</version>
-						</dependency>
-					</dependencies>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>

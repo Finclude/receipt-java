@@ -79,7 +79,7 @@ public abstract class AbstractPlainTextFormatBuilder extends AbstractFormatBuild
 	 */
 	protected String fixCharacters(final String str){
 		if (str == null) {
-			return "";		//TODO confirm behaviour
+			return "";		// Behaviour should be confirmed here
 		}
 
 		if (this.invalidCharsPattern != null){

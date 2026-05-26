@@ -1,6 +1,5 @@
 package coza.trojanc.receipt.shared;
 
-import coza.trojanc.receipt.loader.Loader;
 import coza.trojanc.receipt.loader.YamlLoader;
 import org.junit.jupiter.api.DynamicTest;
 import org.junit.jupiter.api.Test;
@@ -212,7 +211,7 @@ public class PrintStringUtilTest {
 	@Test
 	public void getLinesWithNewLines() throws Exception {
 		final String[] value = PrintStringUtil.getLines("this is a very long |But should be good|", 20, "|");
-		// TODO there is a bug here, a blank line should not be added
+		// There is a bug here, a blank line should not be added
 		final String[] expected = {"this is a very long", "", "But should be good"};
 		Arrays.asList(value).forEach(item -> System.out.println(">" + item + "<"));
 		assertArrayEquals(expected, value);

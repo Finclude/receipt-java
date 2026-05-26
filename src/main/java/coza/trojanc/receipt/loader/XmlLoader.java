@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 
 /**
  * @author Charl Thiem
@@ -18,7 +19,16 @@ public class XmlLoader<T> extends AbstractLoader<T> {
 	protected Class<T> clazz;
 
 	public XmlLoader(){
-		this.clazz = (Class) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+		//this.clazz = (Class) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+		Type type = ((ParameterizedType)
+				getClass().getGenericSuperclass())
+				.getActualTypeArguments()[0];
+
+		if (type instanceof Class<?>) {
+			@SuppressWarnings("unchecked")
+			Class<T> clazz = (Class<T>) type;
+			this.clazz = clazz;
+		}
 	}
 
 	@Override
